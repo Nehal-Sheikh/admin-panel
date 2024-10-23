@@ -1,0 +1,43 @@
+/* .custom-menubar {
+    background-color: var(--theme-bg-colour, #000000);
+    border-radius: 8px;
+    width: 100%;
+  } */
+  
+  /* .custom-menubar .p-menubar-root-list {
+    justify-content: center;
+  } */
+  
+  /* .custom-menubar .p-menuitem-link {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-radius: 5px;
+    padding: 8px 16px;
+    transition: background-color 0.3s;
+    text-decoration: none;
+  }
+  
+  .custom-menubar .p-menuitem-link:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  } */
+  
+  /* Active link style */
+  /* .custom-menubar .p-menuitem-link.router-link-active {
+    background-color: rgba(255, 255, 255, 0.6);
+    color: #000;
+    font-weight: bold;
+  } */
+  
+
+/* app.component.css */
+.centered-menubar .p-menubar {
+    display: flex;
+    justify-content: center; /* Center the menu items horizontally */
+  }
+  
+  .centered-menubar .p-menubar-start {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
