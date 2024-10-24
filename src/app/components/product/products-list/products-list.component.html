@@ -1,1 +1,90 @@
-<p>products-list works!</p>
+<div class="flex justify-content-end mb-4 mt-4">
+    <p-button severity="info" label="New" icon="pi pi-plus" class="mr-2" (onClick)="openNew()" />
+</div>
+<p-table
+    #dt
+    [value]="products"
+    [rows]="10"
+    [paginator]="true"
+    [globalFilterFields]="['name', 'country.name', 'representative.name', 'status']"
+    [tableStyle]="{ 'min-width': '75rem' }"
+    [(selection)]="selectedProducts"
+    [rowHover]="true"
+    dataKey="id"
+    currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+    [showCurrentPageReport]="true"
+>
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="name" style="min-width:15rem">
+                Article No. <p-sortIcon field="name" />
+            </th>
+            <th pSortableColumn="name" style="min-width:15rem">
+                Name <p-sortIcon field="name" />
+            </th>
+            <th pSortableColumn="price" style="min-width:10rem">
+                Style <p-sortIcon field="price" />
+            </th>
+            <th pSortableColumn="category" style="min-width:10rem">
+                Color <p-sortIcon field="category" />
+            </th>
+            <th pSortableColumn="category" style="min-width:10rem">
+                Category <p-sortIcon field="category" />
+            </th>
+            <th pSortableColumn="category" style="min-width:10rem">
+                Gender <p-sortIcon field="category" />
+            </th>
+            <th pSortableColumn="category" style="min-width:10rem">
+                Price <p-sortIcon field="category" />
+            </th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-product>
+        <tr>
+            <td>
+                {{ product.article_no }}
+            </td>
+            <td>
+                {{ product.name }}
+            </td>
+            <td>
+                {{ product.style }}
+            </td>
+            <td>
+                {{ product.color }}
+            </td>
+            <td>
+                {{ product.category }}
+            </td>
+            <td>
+                {{ product.gender }}
+            </td>
+            <td>
+                {{ product.price }}
+            </td>
+            <td>
+                <p-button 
+                 
+                    icon="pi pi-pencil" 
+                    class="mr-2" 
+                    [rounded]="true" 
+                    [outlined]="true" 
+                    severity="success" 
+                    (onClick)="editProduct(product)" />
+                <p-button 
+                 
+                    icon="pi pi-trash" 
+                    severity="danger" 
+                    [rounded]="true" 
+                    [outlined]="true" 
+                    (onClick)="deleteProduct(product)" />
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+        <div class="flex align-items-center justify-content-between">
+            In total there are {{ products ? products.length : 0 }} products.
+        </div>
+    </ng-template>
+</p-table>
